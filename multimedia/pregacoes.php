@@ -11,7 +11,7 @@ include_once __DIR__ . '/../includes/header.php';
 // ─── Load .env ────────────────────────────────────────────────────────────────
 function loadEnv(string $path): void {
     if (!file_exists($path)) {
-        throw new RuntimeException(".env file not found at: $path");
+        return;
     }
     $lines = file($path, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
     foreach ($lines as $line) {
